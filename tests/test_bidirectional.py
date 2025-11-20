@@ -10,7 +10,6 @@ import numpy as np
 def test_unidirectional():
     model = RoMaV2()
     model.apply_setting("base")
-    model.compile()
     B = 8
     T = 20
     img_A = (
@@ -49,7 +48,6 @@ def test_bidirectional():
     model = RoMaV2()
     model.apply_setting("base")
     model.bidirectional = True
-    model.compile()
     B = 8
     T = 20
     img_A = (
@@ -85,5 +83,7 @@ def test_bidirectional():
     print(f"FPS: {T * B / (t1 - t0)}")
 
 if __name__ == "__main__":
+    print("Testing unidirectional...")
     test_unidirectional()
+    print("Testing bidirectional...")
     test_bidirectional()
